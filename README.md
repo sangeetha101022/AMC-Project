@@ -70,6 +70,20 @@ Phase 1 - ADMIN SIDE
 
 
 
+
+**TOOLS & TECHNOLOGIES USED**
+**Springboot - MVC**
+SPRING BOOT DEPENDENCY:-
+1.Thymeleaf
+2.Spring boot JPA
+3.Spring boot development tools
+4.Spring web
+5.Spring security
+
+
+
+
+
  
 
  
