@@ -1,0 +1,44 @@
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.prog.entity.Agent;
+import com.prog.repository.AgentRepo;
+
+@Service
+public class AgentService {
+
+	@Autowired
+	private agentRepo repo;
+
+	public void addagent(Agent e) {
+		repo.save(e);
+	}
+
+	public List<Agent> getAllAgent() {
+		return repo.findAll();
+	}
+
+	public Agent getAgentById(int id) {
+		Optional<Agent> e = repo.findById(id);
+		if (e.isPresent()) {
+			return e.get();
+		}
+		return null;
+	}
+
+	public void deleteAgent(int id) {
+		repo.deleteById(id);
+	}
+
+	public Page<Agent> getAgentByPaginate(int currentPage, int size) {
+		Pageable p = PageRequest.of(currentPage, size);
+		return repo.findAll(p);
+	}
+
+}
